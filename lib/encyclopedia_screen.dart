@@ -1,5 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
+// import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,7 +10,7 @@ import 'app_info_screen.dart';
 import 'home_screen.dart';
 
 class Encyclopedia extends StatefulWidget {
-  const Encyclopedia({Key? key}) : super(key: key);
+  const Encyclopedia({super.key});
 
   @override
   State<Encyclopedia> createState() => _EncyclopediaState();
@@ -60,26 +62,29 @@ class _EncyclopediaState extends State<Encyclopedia> {
           milliseconds: 300,
         ),
         items: [
-          NeumorphicIcon(
+          Icon(
             Icons.menu_book_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
+            // style: NeumorphicStyle(
+            //   color: accentColor,
+            //   intensity: 20,
+            // ),
           ),
-          NeumorphicIcon(
+          Icon(
             Icons.home_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
+            // style: NeumorphicStyle(
+            //   color: accentColor,
+            //   intensity: 20,
+            // ),
           ),
-          NeumorphicIcon(
+          Icon(
             Icons.info_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
+            // style: NeumorphicStyle(
+            //   color: accentColor,
+            //   intensity: 20,
+            // ),
           ),
         ],
       ),
@@ -205,377 +210,386 @@ class _EncyclopediaState extends State<Encyclopedia> {
                     ),
                     Expanded(
                       child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Apple+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/eapple.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            20,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                        children: [
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Apple+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/eapple.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Apple',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                20,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Apple',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Bell+Pepper+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/ebellpepper.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Bell+Pepper+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/ebellpepper.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Bell Pepper',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Bell Pepper',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Cherry+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/echerry.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Cherry+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/echerry.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Cherry',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Cherry',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Corn+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/ecorn.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Corn+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/ecorn.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Corn',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Corn',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Grape+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/egrapes.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Grape+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/egrapes.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Grape',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Grape',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Peach+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/epeach.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Peach+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/epeach.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Peach',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Peach',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Potato+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/epotato.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Potato+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/epotato.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Potato',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Potato',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Rice+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/erice.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            10,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Rice+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/erice.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Rice',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                10,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Rice',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () async {
-                          String urls = "https://www.google.com/search?q=" 'Tomato+plant+diseases+and+preventive+care+measures';
-                          Uri url = Uri.parse(urls);
-                          await launchUrl(url,
-                              mode: LaunchMode.inAppWebView);
-                        },
-                        child: Container(
-                          height: 130,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage('assets/etomato.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          margin: const EdgeInsets.fromLTRB(
-                            10,
-                            0,
-                            10,
-                            20,
-                          ),
-                          child: Align(
-                            alignment: Alignment.topLeft,
+                          GestureDetector(
+                            onTap: () async {
+                              String urls = "https://www.google.com/search?q="
+                                  'Tomato+plant+diseases+and+preventive+care+measures';
+                              Uri url = Uri.parse(urls);
+                              await launchUrl(url,
+                                  mode: LaunchMode.inAppWebView);
+                            },
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                                left: 20,
+                              height: 130,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('assets/etomato.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
-                                'Tomato',
-                                style: TextStyle(
-                                  color: backgroundColor,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                              margin: const EdgeInsets.fromLTRB(
+                                10,
+                                0,
+                                10,
+                                20,
+                              ),
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Text(
+                                    'Tomato',
+                                    style: TextStyle(
+                                      color: backgroundColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ],
+                        ],
                       ),
                     ),
                   ],

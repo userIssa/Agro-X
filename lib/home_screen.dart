@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+// import 'package:Container/flutter_neumorphic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:agro_lab/leaf_scan.dart';
@@ -9,7 +10,7 @@ import 'app_info_screen.dart';
 import 'encyclopedia_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -66,26 +67,29 @@ class _HomeScreenState extends State<HomeScreen> {
           milliseconds: 300,
         ),
         items: [
-          NeumorphicIcon(
+          Icon(
             Icons.menu_book_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
+            // style: NeumorphicStyle(
+            //   color: accentColor,
+            //   intensity: 20,
+            // ),
           ),
-          NeumorphicIcon(
+          Icon(
             Icons.home_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
+            // style: NeumorphicStyle(
+            //   color: accentColor,
+            //   intensity: 20,
+            // ),
           ),
-          NeumorphicIcon(
+          Icon(
             Icons.info_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
+            // style: NeumorphicStyle(
+            //   color: accentColor,
+            //   intensity: 20,
+            // ),
           ),
         ],
       ),
@@ -153,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -187,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -221,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -254,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -288,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -322,7 +326,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -356,7 +360,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -389,7 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -423,7 +427,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  child: Neumorphic(
+                  child: Container(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,

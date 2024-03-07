@@ -1,14 +1,16 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names
 import 'dart:io';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
+// import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:agro_lab/encyclopedia_screen.dart';
 import 'package:agro_lab/home_screen.dart';
-import 'package:tflite/tflite.dart';
+// import 'package:tflite/tflite.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_info_screen.dart';
@@ -16,7 +18,7 @@ import 'app_info_screen.dart';
 class LeafScan extends StatefulWidget {
   final String modelName;
   //parameters passed from home screen
-  const LeafScan({Key? key, required this.modelName}) : super(key: key);
+  const LeafScan({super.key, required this.modelName});
 
   @override
   // ignore: no_logic_in_create_state
@@ -75,7 +77,7 @@ class _LeafScanState extends State<LeafScan> {
         final imageTemporary = File(image.path);
         setState(() {
           pickedImage = imageTemporary;
-          applyModelOnImage(pickedImage!);
+          // applyModelOnImage(pickedImage!);
           result_visibility = true;
           isButtonPressedCamera = false;
           isButtonPressedGallery = false;
@@ -104,49 +106,49 @@ class _LeafScanState extends State<LeafScan> {
   void initState() {
     super.initState();
     // print(modelName);
-    loadModel().then((val) {
-      setState(() {});
-    });
+    // loadModel().then((val) {
+    //   setState(() {});
+    // });
   }
 
   @override
   void dispose() {
     super.dispose();
-    closeModel();
+    // closeModel();
   }
 
-  loadModel() async {
-    String modelPath = ModelPathSelector();
-    // print(modelPath);
-    // ignore: unused_local_variable
-    var resultant = await Tflite.loadModel(
-        model: modelPath + "/model_unquant.tflite",
-        labels: modelPath + "/labels.txt");
+  // loadModel() async {
+  //   String modelPath = ModelPathSelector();
+  //   // print(modelPath);
+  //   // ignore: unused_local_variable
+  //   var resultant = await Tflite.loadModel(
+  //       model: modelPath + "/model_unquant.tflite",
+  //       labels: modelPath + "/labels.txt");
 
-    // print("Result after loading model: $resultant");
-  }
+  //   // print("Result after loading model: $resultant");
+  // }
 
-  applyModelOnImage(File file) async {
-    var res = await Tflite.runModelOnImage(
-        path: file.path,
-        numResults: 2,
-        threshold: 0.5,
-        imageMean: 127.5,
-        imageStd: 127.5);
+  // applyModelOnImage(File file) async {
+  //   var res = await Tflite.runModelOnImage(
+  //       path: file.path,
+  //       numResults: 2,
+  //       threshold: 0.5,
+  //       imageMean: 127.5,
+  //       imageStd: 127.5);
 
-    setState(() {
-      results = res!;
-      // print(results);
-      String str = results![0]["label"];
-      name = str.substring(2);
-      confidence = results != null
-          ? (results![0]["confidence"] * 100.0).toString().substring(0, 5) + "%"
-          : "";
-      // print(name);
-      // print(confidence);
-      split_model_result();
-    });
-  }
+  //   setState(() {
+  //     results = res!;
+  //     // print(results);
+  //     String str = results![0]["label"];
+  //     name = str.substring(2);
+  //     confidence = results != null
+  //         ? (results![0]["confidence"] * 100.0).toString().substring(0, 5) + "%"
+  //         : "";
+  //     // print(name);
+  //     // print(confidence);
+  //     split_model_result();
+  //   });
+  // }
 
   void split_model_result() {
     List temp = name.split(' ');
@@ -157,9 +159,9 @@ class _LeafScanState extends State<LeafScan> {
     // print(disease_name);
   }
 
-  void closeModel() async {
-    await Tflite.close();
-  }
+  // void closeModel() async {
+  //   await Tflite.close();
+  // }
 
   @override
   Widget build(BuildContext context) {

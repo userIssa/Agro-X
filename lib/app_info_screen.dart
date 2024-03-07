@@ -1,5 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
+// import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,7 +10,7 @@ import 'encyclopedia_screen.dart';
 import 'home_screen.dart';
 
 class AppInfoScreen extends StatefulWidget {
-  const AppInfoScreen({Key? key}) : super(key: key);
+  const AppInfoScreen({super.key});
 
   @override
   State<AppInfoScreen> createState() => _AppInfoScreenState();
@@ -25,7 +27,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
       backgroundColor: backgroundColor,
       bottomNavigationBar: CurvedNavigationBar(
         onTap: (index) {
-          //todo implement transition to other screens
+          // TODO implement transition to other screens
           // print(index);
           if (index == 0) {
             Navigator.push(
