@@ -43,7 +43,7 @@ dependencies:
   url_launcher: ^6.2.5
   easy_splash_screen: ^1.0.4
   flutter_neumorphic_plus: ^3.3.0
-  tflite: ^1.1.2
+  tflite_v2: ^1.0.0
 
 dev_dependencies:
   flutter_test:

@@ -62,26 +62,21 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
           milliseconds: 300,
         ),
         items: [
-          NeumorphicIcon(
+          Icon(
             Icons.menu_book_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
+            // style: NeumorphicStyle(
+            //   color: accentColor,
+            //   intensity: 20,
+            // ),
           ),
-          NeumorphicIcon(
+          Icon(
             Icons.home_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
           ),
-          NeumorphicIcon(
+          Icon(
             Icons.info_rounded,
-            style: NeumorphicStyle(
-              color: accentColor,
-              intensity: 20,
-            ),
+            color: accentColor,
           ),
         ],
       ),
@@ -130,12 +125,11 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                 children: [
                   Column(
                     children: [
-                      Neumorphic(
+                      Container(
                         padding: const EdgeInsets.all(10),
-                        style: NeumorphicStyle(
+                        decoration: BoxDecoration(
                           color: accentColor,
-                          intensity: 20,
-                          depth: 20,
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
                           'Our Team',
@@ -155,15 +149,16 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                         children: [
                           Column(
                             children: [
-                              Neumorphic(
+                              Container(
                                 margin: const EdgeInsets.only(
                                   left: 20,
                                 ),
-                                style: NeumorphicStyle(
-                                  border: NeumorphicBorder(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
                                     color: accentColor,
                                     width: 2,
                                   ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
@@ -189,12 +184,10 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                       margin: const EdgeInsets.only(
                                         right: 10,
                                       ),
-                                      child: NeumorphicText(
+                                      child: const Text(
                                         'Sagar Paul',
-                                        style: const NeumorphicStyle(
+                                        style: TextStyle(
                                           color: Colors.black,
-                                        ),
-                                        textStyle: NeumorphicTextStyle(
                                           fontSize: 15,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.bold,
@@ -249,16 +242,17 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                           ),
                           Column(
                             children: [
-                              Neumorphic(
+                              Container(
                                 margin: const EdgeInsets.only(
                                   left: 20,
                                   right: 20,
                                 ),
-                                style: NeumorphicStyle(
-                                  border: NeumorphicBorder(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
                                     color: accentColor,
                                     width: 2,
                                   ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
@@ -285,12 +279,10 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                       margin: const EdgeInsets.only(
                                         right: 10,
                                       ),
-                                      child: NeumorphicText(
+                                      child: const Text(
                                         'Paul G',
-                                        style: const NeumorphicStyle(
+                                        style: TextStyle(
                                           color: Colors.black,
-                                        ),
-                                        textStyle: NeumorphicTextStyle(
                                           fontSize: 15,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.bold,
@@ -350,16 +342,17 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                         children: [
                           Column(
                             children: [
-                              Neumorphic(
+                              Container(
                                 margin: const EdgeInsets.only(
                                   top: 20,
                                   left: 20,
                                 ),
-                                style: NeumorphicStyle(
-                                  border: NeumorphicBorder(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
                                     color: accentColor,
                                     width: 2,
                                   ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
@@ -385,12 +378,10 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                       margin: const EdgeInsets.only(
                                         right: 10,
                                       ),
-                                      child: NeumorphicText(
+                                      child: const Text(
                                         'Varun C',
-                                        style: const NeumorphicStyle(
+                                        style: TextStyle(
                                           color: Colors.black,
-                                        ),
-                                        textStyle: NeumorphicTextStyle(
                                           fontSize: 15,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.bold,
@@ -482,12 +473,10 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                       margin: const EdgeInsets.only(
                                         right: 10,
                                       ),
-                                      child: NeumorphicText(
+                                      child: const Text(
                                         'Nihal Manoj',
-                                        style: const NeumorphicStyle(
+                                        style: TextStyle(
                                           color: Colors.black,
-                                        ),
-                                        textStyle: NeumorphicTextStyle(
                                           fontSize: 15,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.bold,
@@ -542,14 +531,13 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                           ),
                         ],
                       ),
-                      Neumorphic(
+                      Container(
                         padding: const EdgeInsets.all(
                           10,
                         ),
-                        style: NeumorphicStyle(
-                          color: backgroundColor,
-                          intensity: 20,
-                          depth: 5,
+                        decoration: BoxDecoration(
+                          color: accentColor,
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         margin: const EdgeInsets.only(
                           top: 20,
@@ -574,7 +562,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                               child: const Text(
                                 'AgroLab was created as part of our mini project work during the penultimate year of our CS Engineering Graduation course.\n\nAgroLab was developed with an intention to reduce the time taken to identify various plant diseases with a high detection accuracy. Early detection and counter measures will help prevent large scale losses to the farmers, also improving crop productivity.',
                                 style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 15,
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500,
                                 ),
