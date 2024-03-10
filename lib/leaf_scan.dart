@@ -29,6 +29,7 @@ class _LeafScanState extends State<LeafScan> {
 
   // To indicate when the model is loading or processing an image
   bool isLoading = false;
+  bool _isInferenceRunning = false;
 
   File? pickedImage;
   bool isButtonPressedCamera = false;
@@ -68,27 +69,6 @@ class _LeafScanState extends State<LeafScan> {
       default:
         return "";
     }
-    // if (modelName.toLowerCase() == "apple") {
-    //   return 'models/Apple';
-    // } else if (modelName.toLowerCase() == "bellpepper") {
-    //   return 'models/BellPepper';
-    // } else if (modelName.toLowerCase() == "cherry") {
-    //   return 'models/Cherry';
-    // } else if (modelName.toLowerCase() == "corn") {
-    //   return 'models/Corn';
-    // } else if (modelName.toLowerCase() == "grape") {
-    //   return 'models/Grape';
-    // } else if (modelName.toLowerCase() == "peach") {
-    //   return 'models/Peach';
-    // } else if (modelName.toLowerCase() == "potato") {
-    //   return 'models/Potato';
-    // } else if (modelName.toLowerCase() == "rice") {
-    //   return 'models/Rice';
-    // } else if (modelName.toLowerCase() == "tomato") {
-    //   return 'models/Tomato';
-    // } else {
-    //   return "";
-    // }
   }
 
   @override
@@ -144,36 +124,40 @@ class _LeafScanState extends State<LeafScan> {
   }
 
   applyModelOnImage(File file) async {
-    var res = await Tflite.runModelOnImage(
-      path: file.path,
-      numResults: 2,
-      threshold: 0.5,
-      imageMean: 127.5,
-      imageStd: 127.5,
-    );
-
-    if (res != null && res.isNotEmpty) {
-      setState(() {
-        results = res;
-        confidence =
-            "${((res[0]["confidence"] as double) * 100.0).toStringAsFixed(2)}%";
-        name = res[0]["label"];
-        splitModelResult(name);
-      });
+    if (_isInferenceRunning) {
+      print('Model inference is already in progress.');
+      return;
     }
 
-    // setState(() {
-    //   results = res!;
-    //   // print(results);
-    //   String str = results![0]["label"];
-    //   name = str.substring(2);
-    //   confidence = results != null
-    //       ? "${(results![0]["confidence"] * 100.0).toString().substring(0, 5)}%"
-    //       : "";
-    //   // print(name);
-    //   // print(confidence);
-    //   splitModelResult();
-    // });
+    setState(() {
+      _isInferenceRunning = true;
+    });
+
+    try {
+      var res = await Tflite.runModelOnImage(
+        path: file.path,
+        numResults: 2,
+        threshold: 0.5,
+        imageMean: 127.5,
+        imageStd: 127.5,
+      );
+
+      if (res != null && res.isNotEmpty) {
+        setState(() {
+          results = res;
+          confidence =
+              "${((res[0]["confidence"] as double) * 100.0).toStringAsFixed(2)}%";
+          name = res[0]["label"];
+          splitModelResult(name);
+        });
+      }
+    } catch (e) {
+      print("Error running model inference: $e");
+    } finally {
+      setState(() {
+        _isInferenceRunning = false;
+      });
+    }
   }
 
   void splitModelResult(String fullName) {
@@ -542,21 +526,52 @@ class _LeafScanState extends State<LeafScan> {
                     child: Expanded(
                       child: GestureDetector(
                         onTap: () async {
+                          String searchQuery;
                           if (diseaseName.toLowerCase() != "healthy") {
-                            diseaseUrl = "https://www.google.com/search?q=" +
-                                modelName +
-                                '+' +
-                                diseaseName.replaceAll(' ', '+');
-                            Uri url = Uri.parse(diseaseUrl);
-                            await launchUrl(url, mode: LaunchMode.inAppWebView);
+                            searchQuery =
+                                "$modelName+$diseaseName".replaceAll(' ', '+');
+                            // diseaseUrl = "https://www.google.com/search?q=" +
+                            //     modelName +
+                            //     '+' +
+                            //     diseaseName.replaceAll(' ', '+');
+                            // Uri url = Uri.parse(diseaseUrl);
+                            // await launchUrl(url, mode: LaunchMode.inAppWebView);
                           } else {
-                            diseaseUrl = "https://www.google.com/search?q=" +
-                                modelName +
-                                '+' +
-                                'plant+care+tips';
-                            Uri url = Uri.parse(diseaseUrl);
-                            await launchUrl(url, mode: LaunchMode.inAppWebView);
+                            searchQuery = "$modelName+plant+care+tips";
+                            // diseaseUrl = "https://www.google.com/search?q=" +
+                            //     modelName +
+                            //     '+' +
+                            //     'plant+care+tips';
+                            // Parse the url and launch it in the inAppWebView
+                            // Uri url = Uri.parse(diseaseUrl);
+                            // await launchUrl(url, mode: LaunchMode.inAppWebView);
                           }
+
+                          // Encode the search query to ensure that the url is valid
+                          String encodedSearchQuery =
+                              Uri.encodeFull(searchQuery);
+
+                          // construct the full url
+                          String diseaseUrl =
+                              "https://www.google.com/search?q=$encodedSearchQuery";
+                          print("Launching URL: $diseaseUrl");
+
+                          // Parse the url and launch it in the inAppWebView
+                          Uri url = Uri.parse(diseaseUrl);
+
+                          launchUrl(url, mode: LaunchMode.inAppWebView);
+                          // if (await canLaunchUrl(url)) {
+                          //   await launchUrl(url, mode: LaunchMode.inAppWebView);
+                          // } else {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     SnackBar(
+                          //       backgroundColor: accentColor,
+                          //       content:
+                          //           Text('Could not launch URL: $diseaseUrl'),
+                          //     ),
+                          //   );
+                          print('Could not launch $diseaseUrl');
+                          // }
                         },
                         child: Neumorphic(
                           style: NeumorphicStyle(
